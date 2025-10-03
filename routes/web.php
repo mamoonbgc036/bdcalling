@@ -1,7 +1,10 @@
 <?php
 
+use App\Events\MyEvent;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +17,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('event', [TestController::class, 'show']);
+
+Route::get('fire', function () {
+    event(new MyEvent('awsoem'));
 });
 
 Route::get('check', [TestController::class, 'index']);
 
 Route::post('store', [TestController::class, 'store'])->name('store');
+
+Route::resource('post', PostController::class);

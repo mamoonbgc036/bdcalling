@@ -12,7 +12,7 @@
 
 <body class="bg-light p-4">
     <div class="container">
-        <h2 class="mb-4">Add Multiplessss Contents and Blogs</h2>
+        <h2 class="mb-4">Add Multiplessss Contentssss and Blogs</h2>
         @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Validation Failed:</strong> Please fix the errors below.

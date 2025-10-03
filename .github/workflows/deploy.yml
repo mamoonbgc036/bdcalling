@@ -13,12 +13,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-
-      - name: Install Dependencies
       - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@v1
         with:
@@ -28,3 +22,6 @@ jobs:
           script: |
             cd /var/www/bdcalling
             git pull origin main
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
